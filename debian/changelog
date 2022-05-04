@@ -1,0 +1,5 @@
+daverandom-libdns (2.0.2-1) unstable; urgency=medium
+
+  * Initial release (Closes: #1006360).
+
+ -- Katharina Drexel <katharina.drexel@bfh.ch>  Wed, 04 May 2022 11:33:09 +0200

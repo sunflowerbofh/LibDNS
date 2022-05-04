@@ -1,0 +1,33 @@
+Source: daverandom-libdns
+Section: php
+Priority: optional
+Maintainer: Katharina Drexel <katharina.drexel@bfh.ch>
+Build-Depends:
+ debhelper-compat (= 13),
+ phpab,
+ pkg-php-tools,
+Rules-Requires-Root: no
+Standards-Version: 4.6.0
+Homepage: https://github.com/DaveRandom/LibDNS
+Vcs-Browser: https://github.com/DaveRandom/LibDNS
+Vcs-Git: https://github.com/sunflowerbofh/LibDNS.git
+
+Package: php-daverandom-libdns
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${phpcomposer:Debian-require},
+Suggests:
+ ${phpcomposer:Debian-suggest},
+Replaces:
+ ${phpcomposer:Debian-replace},
+Breaks:
+ ${phpcomposer:Debian-conflict},
+Provides:
+ ${phpcomposer:Debian-provide},
+Description: ${phpcomposer:description}
+ This library is currently undergoing a ground-up rewrite. The old codebase has
+ been archive to the 2.x branch. The current master is version 3, a completely
+ new API which is simpler and should be easier to work with, as well as
+ improving performance and extensibility. V3 also includes much more complete
+ list of IANA-registered record types, classes and other elements.
