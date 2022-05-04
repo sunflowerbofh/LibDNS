@@ -1,16 +1,29 @@
 <?php declare(strict_types=1);
+/**
+ * Enumeration of possible resource QTYPE values
+ *
+ * PHP version 5.4
+ *
+ * @category LibDNS
+ * @package Records
+ * @author Chris Wright <https://github.com/DaveRandom>
+ * @copyright Copyright (c) Chris Wright <https://github.com/DaveRandom>
+ * @license http://www.opensource.org/licenses/mit-license.html MIT License
+ * @version 2.0.0
+ */
+namespace LibDNS\Records;
 
-namespace DaveRandom\LibDNS\Records;
-
+/**
+ * Enumeration of possible resource QTYPE values
+ *
+ * @category LibDNS
+ * @package Records
+ * @author Chris Wright <https://github.com/DaveRandom>
+ */
 final class ResourceQTypes extends ResourceTypes
 {
-    // RFC 1035
-    const AXFR  = 252;
-    const ALL   = 255;
-
-    // RFC 1996
-    const IXFR  = 251;
-
-    /** @deprecated */ const MAILB = 253;
-    /** @deprecated */ const MAILA = 254;
+    const AXFR = 252;
+    const MAILB = 253;
+    const MAILA = 254;
+    const ALL = 255;
 }

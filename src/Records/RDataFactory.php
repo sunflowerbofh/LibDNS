@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * Enumeration of possible resource CLASS values
+ * Creates RData objects
  *
  * PHP version 5.4
  *
@@ -13,19 +13,25 @@
  */
 namespace LibDNS\Records;
 
-use \LibDNS\Enumeration;
+use \LibDNS\Records\TypeDefinitions\TypeDefinition;
 
 /**
- * Enumeration of possible resource CLASS values
+ * Creates RData objects
  *
  * @category LibDNS
  * @package Records
  * @author Chris Wright <https://github.com/DaveRandom>
  */
-abstract class ResourceClasses extends Enumeration
+class RDataFactory
 {
-    const IN = 1;
-    const CS = 2;
-    const CH = 3;
-    const HS = 4;
+    /**
+     * Create a new RData object
+     *
+     * @param \LibDNS\Records\TypeDefinitions\TypeDefinition $typeDefinition
+     * @return \LibDNS\Records\RData
+     */
+    public function create(TypeDefinition $typeDefinition): RData
+    {
+        return new RData($typeDefinition);
+    }
 }

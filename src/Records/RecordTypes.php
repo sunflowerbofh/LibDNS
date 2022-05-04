@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * Enumeration of possible resource CLASS values
+ * Enumeration of possible record types
  *
  * PHP version 5.4
  *
@@ -16,16 +16,14 @@ namespace LibDNS\Records;
 use \LibDNS\Enumeration;
 
 /**
- * Enumeration of possible resource CLASS values
+ * Enumeration of possible record types
  *
  * @category LibDNS
  * @package Records
  * @author Chris Wright <https://github.com/DaveRandom>
  */
-abstract class ResourceClasses extends Enumeration
+final class RecordTypes extends Enumeration
 {
-    const IN = 1;
-    const CS = 2;
-    const CH = 3;
-    const HS = 4;
+    const QUESTION = 0;
+    const RESOURCE = 1;
 }

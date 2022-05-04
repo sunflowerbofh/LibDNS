@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * Enumeration of possible resource CLASS values
+ * Creates Question objects
  *
  * PHP version 5.4
  *
@@ -13,19 +13,25 @@
  */
 namespace LibDNS\Records;
 
-use \LibDNS\Enumeration;
+use \LibDNS\Records\Types\TypeFactory;
 
 /**
- * Enumeration of possible resource CLASS values
+ * Creates Question objects
  *
  * @category LibDNS
  * @package Records
  * @author Chris Wright <https://github.com/DaveRandom>
  */
-abstract class ResourceClasses extends Enumeration
+class QuestionFactory
 {
-    const IN = 1;
-    const CS = 2;
-    const CH = 3;
-    const HS = 4;
+    /**
+     * Create a new Question object
+     *
+     * @param int $type The resource type
+     * @return \LibDNS\Records\Question
+     */
+    public function create(int $type): Question
+    {
+        return new Question(new TypeFactory, $type);
+    }
 }

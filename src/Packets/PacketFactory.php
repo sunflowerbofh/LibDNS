@@ -1,31 +1,35 @@
 <?php declare(strict_types=1);
 /**
- * Enumeration of possible resource CLASS values
+ * Creates Packet objects
  *
  * PHP version 5.4
  *
  * @category LibDNS
- * @package Records
+ * @package Packets
  * @author Chris Wright <https://github.com/DaveRandom>
  * @copyright Copyright (c) Chris Wright <https://github.com/DaveRandom>
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace LibDNS\Records;
-
-use \LibDNS\Enumeration;
+namespace LibDNS\Packets;
 
 /**
- * Enumeration of possible resource CLASS values
+ * Creates Packet objects
  *
  * @category LibDNS
- * @package Records
+ * @package Packets
  * @author Chris Wright <https://github.com/DaveRandom>
  */
-abstract class ResourceClasses extends Enumeration
+class PacketFactory
 {
-    const IN = 1;
-    const CS = 2;
-    const CH = 3;
-    const HS = 4;
+    /**
+     * Create a new Packet object
+     *
+     * @param string $data
+     * @return \LibDNS\Packets\Packet
+     */
+    public function create(string $data = ''): Packet
+    {
+        return new Packet($data);
+    }
 }

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * Enumeration of possible resource CLASS values
+ * Creates Resource objects
  *
  * PHP version 5.4
  *
@@ -13,19 +13,26 @@
  */
 namespace LibDNS\Records;
 
-use \LibDNS\Enumeration;
+use \LibDNS\Records\Types\TypeFactory;
 
 /**
- * Enumeration of possible resource CLASS values
+ * Creates Resource objects
  *
  * @category LibDNS
  * @package Records
  * @author Chris Wright <https://github.com/DaveRandom>
  */
-abstract class ResourceClasses extends Enumeration
+class ResourceFactory
 {
-    const IN = 1;
-    const CS = 2;
-    const CH = 3;
-    const HS = 4;
+    /**
+     * Create a new Resource object
+     *
+     * @param int $type Can be indicated using the ResourceTypes enum
+     * @param \LibDNS\Records\RData $data
+     * @return \LibDNS\Records\Resource
+     */
+    public function create(int $type, RData $data): Resource
+    {
+        return new Resource(new TypeFactory, $type, $data);
+    }
 }

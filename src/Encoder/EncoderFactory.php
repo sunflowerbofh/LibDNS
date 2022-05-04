@@ -1,31 +1,36 @@
 <?php declare(strict_types=1);
 /**
- * Enumeration of possible resource CLASS values
+ * Creates Encoder objects
  *
  * PHP version 5.4
  *
  * @category LibDNS
- * @package Records
+ * @package Encoder
  * @author Chris Wright <https://github.com/DaveRandom>
  * @copyright Copyright (c) Chris Wright <https://github.com/DaveRandom>
  * @license http://www.opensource.org/licenses/mit-license.html MIT License
  * @version 2.0.0
  */
-namespace LibDNS\Records;
+namespace LibDNS\Encoder;
 
-use \LibDNS\Enumeration;
+use \LibDNS\Packets\PacketFactory;
 
 /**
- * Enumeration of possible resource CLASS values
+ * Creates Encoder objects
  *
  * @category LibDNS
- * @package Records
+ * @package Encoder
  * @author Chris Wright <https://github.com/DaveRandom>
  */
-abstract class ResourceClasses extends Enumeration
+class EncoderFactory
 {
-    const IN = 1;
-    const CS = 2;
-    const CH = 3;
-    const HS = 4;
+    /**
+     * Create a new Encoder object
+     *
+     * @return \LibDNS\Encoder\Encoder
+     */
+    public function create(): Encoder
+    {
+        return new Encoder(new PacketFactory, new EncodingContextFactory);
+    }
 }
